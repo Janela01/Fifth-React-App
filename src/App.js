@@ -8,8 +8,10 @@ function App() {
   const [Tenzies,setTenzies]=React.useState(false);
   React.useEffect(()=>{
     const allHeld=dice.every(die=>die.isHeld);
-    const allSame=dice.every(die=>die.value==dice[0].value);
-    {allSame && allHeld && setTenzies(true)};
+    const allSame=dice.every(die=>die.value===dice[0].value);
+    if(allSame&&allHeld){
+      setTenzies(true);
+    }
   },[dice])
   function rand(){
     let random=[];
